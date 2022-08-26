@@ -1,42 +1,43 @@
-import React from 'react';
+// import react functionality 
+import React, {useState} from 'react'
+// end import react functionality 
+import {BsTrash, BsPencil} from 'react-icons/bs'
 
 
-
-function CommentCard ({commentsList, selectedSite}){
-    const [currentComment, setCurrentComment] = useState([])
-
-
-        (async () => {
-            // DELETE request using fetch with async/await
-            const element = document.querySelector('#delete-request-async-await .status');
-            await fetch('http://localhost:3000/comment/:id', 
-                { method: 'DELETE' });
-                
-                setDeleting(state => !state)
-
-            element.innerHTML = 'Delete successful';
-        })();
+function CommentCard ({comment, handleEdit}) {
  
+    const handleDelete = async () => {
+        // DELETE request using fetch with async/await
+        const element = document.querySelector('#delete-request-async-await .status');
+        await fetch(`http://localhost:3000/comments/${comment.id}`, 
+            { method: 'DELETE' });
+    }
+
+    const handleEdit = async () =>{
+        // PATCH request using fetch with async/await
+        await fetch(`http://localhost:3000/comments/${comment.id}`, 
+        { method: 'PATCH',
+        body: JSON.stringify({})
+      })
+    }
+
+    //how are we going to do the edit?????
+    
+
     return(
-        <div id="detailed-site-info"> 
+        <div class="comment-card"> 
 
-            <div>
 
-                <div id="site-info-from-table">
-
-                </div>
-
-                <div id="comments">
-                    {/* create cards for each comment */}
-                </div>
-
-                <div id="add-comment">
-
-                </div>
-                
+            <div class="comment_content">
+                {/* {comment.comment_content} */}
+                for now just some text
             </div>
-
-         </div>
+            <div onClick={handleDelete}><BsTrash /></div>
+            {/* <img class="tash-icon" onClick={handleDelete}/> */}
+            <img class="edit-icon" onClick={handleEdit}/>
+            <div onClick={handleDelete}><BsTrash /></div>
+            <div onClick={handleEdit}><BsPencil /></div>
+        </div>
     )
 
 } 

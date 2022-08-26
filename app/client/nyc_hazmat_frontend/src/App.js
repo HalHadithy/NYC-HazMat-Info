@@ -1,12 +1,21 @@
+// import react functionality 
+import {BrowserRouter, Routes, Route } from "react-router-dom"
+import React, {useState, useEffect} from 'react'
+// end import react functionality 
+
 // import style sheets
 import "./App.css"
-  //import "./style/cart-container.css"
 // end import style sheets
 
-// import react functionality 
-import {Routes, Route } from "react-router-dom"
-import React, {useState} from 'react'
-// end import react functionality 
+// import components
+import Header from "./Components/Header"
+import MapView from "./Components/MapView"
+import DetailedSiteInfo from "./Components/DetailedSiteInfo"
+import FourOhFour from "./Components/FourOhFour"
+
+// end import components 
+
+
 
 
 function App() {
@@ -28,7 +37,7 @@ useEffect(() => {
   fetch(`http://localhost:3000/map_data`)
   .then(response => response.json())
   .then((data) => setMapData(data))
-},[deleting])
+},[])
 //put deleting here to trigger the useEffect every time you change the delete state
 
 
@@ -38,28 +47,33 @@ useEffect(() => {
   fetch(`http://localhost:3000/comments`)
   .then(response => response.json())
   .then((data) => setCommentsList(data))
-},[])
+},[deleting])
 
 
 
   return (
      <div>
-          <Header/>
-            <Routes >        
-              <Route path="/" element={<MapView 
-                mapData={mapData}
-                setSelectedSite={setSelectedSite}
-              />}/>
+          <BrowserRouter>
 
-              <Route path="/detailed_site_info" element={<DetailedSiteInfo
-                commentsList ={commentsList}
-                selectedSite={selectedSite}
-              />}/>
+            <Header/>
+              <Routes >        
+                <Route path="/" element={<MapView 
+                  mapData={mapData}
+                  setSelectedSite={setSelectedSite}
+                />}/>
+
+                <Route path="/detailed_site_info" element={<DetailedSiteInfo
+                  commentsList ={commentsList}
+                  selectedSite={selectedSite}
+                />}/>
 
 
-              <Route path="*" element={<FourOhFour/>}/>
+                <Route path="*" element={<FourOhFour/>}/>
 
-            </Routes>
+              </Routes>
+
+            </BrowserRouter>
+
         </div>
     
   );

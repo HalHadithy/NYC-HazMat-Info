@@ -23,15 +23,6 @@ class CommentsController < ApplicationController
         comment = Comment.find(params[:id])
         comment.destroy
         head :no_content # this is basically like saying render json with no content 
-
-        # fetch('localhost30000 /:id', {
-        #     method: 'DELETE'
-        #     })
-        #     .then(res => res.json())
-        #     .then(data => {
-        #         // Do some stuff...
-        #     })
-        #     .catch(err => console.log(err));
     end
 
     def update
@@ -44,3 +35,4 @@ class CommentsController < ApplicationController
     end
 
 end
+

@@ -1,21 +1,37 @@
-import React from 'react'
-//import bIndeed_logo from '../images/bIndeed_logo.png'
+// import react functionality 
+import React, {useState} from 'react'
+// end import react functionality 
+
+// import components
+import CommentCard from "./CommentCard"
+// end import components 
+
 
 
 
 function DetailedSiteInfo ({commentsList, selectedSite}){
     const [currentComment, setCurrentComment] = useState([])
+          
 
 
-        (async () => {
-            // DELETE request using fetch with async/await
-            const element = document.querySelector('#delete-request-async-await .status');
-            await fetch('http://localhost:3000/comments/:id', 
-                { method: 'DELETE' });
-            element.innerHTML = 'Delete successful';
-        })();
+    function handleSubmit(event){
+        
+        // (async () => {
+        //     // create POST request using fetch with async/await
+        //     const element = document.querySelector('#delete-request-async-await .status');
+        //     await fetch('http://localhost:3000/comments', 
+        //         {   method: 'POST',
+        //             headers:  {
+        //                 "Content-Type": "application/json",
+        //             },
+        //           body: JSON.stringify(data)
+        //     });
+        // })();
+    }
+       
+       
 
-        const comment = rooms.map((singleRoom)=><RoomCard key={singleRoom} singleRoom={singleRoom} setRoom={setRoom}/>)
+        const comment = commentsList.map((comment)=><CommentCard key={comment.id} comment={comment} handleEdit={handleEdit}/>)
  
     return(
         <div id="detailed-site-info"> 
@@ -27,10 +43,16 @@ function DetailedSiteInfo ({commentsList, selectedSite}){
                 </div>
 
                 <div id="comments">
-                    {/* create cards for each comment */}
+                    {comment}
                 </div>
 
                 <div id="add-comment">
+
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" id="add-comment-input" placeholder="Add your new comment here"/>
+                        <input type="submit"/>
+                    </form>
+
 
                 </div>
                 
@@ -39,5 +61,6 @@ function DetailedSiteInfo ({commentsList, selectedSite}){
          </div>
     )
 
-} 
+}
 export default DetailedSiteInfo
+
