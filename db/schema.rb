@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_25_150229) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_26_143308) do
   create_table "comments", force: :cascade do |t|
     t.string "comment_content"
     t.integer "map_id"
@@ -19,30 +19,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_150229) do
   end
 
   create_table "maps", force: :cascade do |t|
-    t.string "BUSINESS_NAME"
-    t.integer "STREET_NUMBER"
-    t.string "STREET_NAME"
-    t.string "CITY"
-    t.string "STATE"
-    t.integer "ZIP"
-    t.string "COUNTY"
-    t.float "LATITUDE"
-    t.float "LONGITUDE"
-    t.string "STATUS"
-    t.string "STATUS_DATE"
-    t.string "POTENTIAL_CONTAMINANTS_OF_CONCERN"
-    t.integer "QUANTITY_RELEASED_GALLONS"
-    t.string "POTENTIAL_MEDIA_OF_CONCERN"
-    t.text "SITE_HISTORY"
-    t.string "BEGIN_DATE"
-    t.string "LEAK_REPORTED_DATE"
-    t.string "HOW_DISCOVERED"
-    t.string "HOW_DISCOVERED_DESCRIPTION"
-    t.string "DISCHARGE_SOURCE"
-    t.string "DISCHARGE_CAUSE"
-    t.string "STOP_METHOD"
-    t.string "STOP_DESCRIPTION"
-    t.string "DISADVANTAGED_COMMUNITY"
+    t.string "business_name"
+    t.integer "street_number"
+    t.string "street_name"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.string "county"
+    t.float "latitude"
+    t.float "logitude"
+    t.string "status"
+    t.string "status_data"
+    t.string "potential_contaminants_of_concerns"
+    t.string "potential_media_of_concerns"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
