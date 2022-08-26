@@ -14,24 +14,23 @@ function DetailedSiteInfo ({commentsList, selectedSite}){
           
 
 
-    function handleSubmit(event){
-        
-        // (async () => {
-        //     // create POST request using fetch with async/await
-        //     const element = document.querySelector('#delete-request-async-await .status');
-        //     await fetch('http://localhost:3000/comments', 
-        //         {   method: 'POST',
-        //             headers:  {
-        //                 "Content-Type": "application/json",
-        //             },
-        //           body: JSON.stringify(data)
-        //     });
-        // })();
+    const handleSubmit = async(event)=>{
+        // create POST request using fetch with async/await
+        event.preventDefault();
+        await fetch('http://localhost:3000/comments', 
+            {   method: 'POST',
+                headers:  {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    comment_content: event.target.value,
+                })
+        });
     }
        
        
 
-        const comment = commentsList.map((comment)=><CommentCard key={comment.id} comment={comment} handleEdit={handleEdit}/>)
+        const comment = commentsList.map((comment)=><CommentCard key={comment.id} comment={comment} setCurrentComment={setCurrentComment}/>)
  
     return(
         <div id="detailed-site-info"> 
@@ -39,10 +38,11 @@ function DetailedSiteInfo ({commentsList, selectedSite}){
             <div>
 
                 <div id="site-info-from-table">
-
+                    hello
                 </div>
 
                 <div id="comments">
+                    comments
                     {comment}
                 </div>
 
@@ -50,7 +50,7 @@ function DetailedSiteInfo ({commentsList, selectedSite}){
 
                     <form onSubmit={handleSubmit}>
                         <input type="text" id="add-comment-input" placeholder="Add your new comment here"/>
-                        <input type="submit"/>
+                        <input type="submit" id="submit-button"/>
                     </form>
 
 

@@ -31,7 +31,7 @@ const [selectedSite, setSelectedSite] = useState({})
 
 const [deleting, setDeleting] = useState(true)
 
-//retrieve data from backend Map table  setMapData(data)
+//retrieve data from backend Map table  setMapData(data), this is ok to just do once ever
 useEffect(() => {
   // console.log("useEffect is starting")
   fetch(`http://localhost:3000/map_data`)
@@ -66,7 +66,6 @@ useEffect(() => {
                   commentsList ={commentsList}
                   selectedSite={selectedSite}
                 />}/>
-
 
                 <Route path="*" element={<FourOhFour/>}/>
 

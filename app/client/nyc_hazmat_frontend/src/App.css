@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+
+
+body {
+  background: linear-gradient(315deg, #e6e6e6, #ffffff);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 15%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+/* Header styling */
+#header {
+  position: relative;
+  background: linear-gradient(315deg, #e6e6e6, #ffffff);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+/* Header styling */
+
+
+/* map styling */
+#map-container {
+  position: relative;
+  margin: 2%;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  height: 40px ;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* map styling */
+
+
+
+
+
+
+/* #block{
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 40px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 99%;
+} */
+
+
+
+
+
+
+
+/* comments */
+
+.comment-card {
+  width: 90%;
+  height: 500px;
+  position: relative;
+  left: 35px;
+  margin-left: 20px;
+  border-radius: 22px;
+  background: rgb(237,237,237);
 }
 
-.App-link {
-  color: #61dafb;
+.comment_content {
+  overflow-x: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.delete-icon{
+
+}
+
+.edit-icon{
+
+}
+
+/* comments */
+
+
+#detailed-site-info{
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 99%;
+}
+
+#add-comment{
+  width: 90%;
+  position: relative;
+  background: rgb(237,237,237);
+}
+#add-comment-input {
+  width: 80%;
+  height: 30px;
+  position: relative;
+  margin-left: 5%;
+}
+
+#submit-button{
+
+}
+
+#site-info-from-table {
+  width: 90%;
+  position: relative;
+  background: rgb(237,237,237);
 }

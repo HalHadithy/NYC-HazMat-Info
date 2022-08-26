@@ -17,7 +17,7 @@ function Header (){
     return(
         <div > 
             <h2 id="header" onClick={handleHomeClick}>
-                Header
+                HazMat Map
             </h2>
 
          </div>

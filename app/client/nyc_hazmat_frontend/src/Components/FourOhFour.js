@@ -9,7 +9,7 @@ function FourOhFour(){
     useEffect(()=>{
         setTimeout(()=>{
             navigate('/')
-        }, 900)
+        }, 1400)
 
     }, [])
 

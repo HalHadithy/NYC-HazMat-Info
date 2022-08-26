@@ -4,8 +4,9 @@ import React, {useState} from 'react'
 import {BsTrash, BsPencil} from 'react-icons/bs'
 
 
-function CommentCard ({comment, handleEdit}) {
- 
+function CommentCard ({comment, setCurrentComment}) {
+    setCurrentComment(comment.id)
+
     const handleDelete = async () => {
         // DELETE request using fetch with async/await
         const element = document.querySelector('#delete-request-async-await .status');
@@ -13,11 +14,13 @@ function CommentCard ({comment, handleEdit}) {
             { method: 'DELETE' });
     }
 
-    const handleEdit = async () =>{
+    const handleEdit = async (event) =>{
         // PATCH request using fetch with async/await
         await fetch(`http://localhost:3000/comments/${comment.id}`, 
         { method: 'PATCH',
-        body: JSON.stringify({})
+        body: JSON.stringify({
+            comment_content: event.target.value
+        })
       })
     }
 
@@ -29,14 +32,11 @@ function CommentCard ({comment, handleEdit}) {
 
 
             <div class="comment_content">
-                {/* {comment.comment_content} */}
-                for now just some text
+                {comment.comment_content}
             </div>
-            <div onClick={handleDelete}><BsTrash /></div>
-            {/* <img class="tash-icon" onClick={handleDelete}/> */}
-            <img class="edit-icon" onClick={handleEdit}/>
-            <div onClick={handleDelete}><BsTrash /></div>
-            <div onClick={handleEdit}><BsPencil /></div>
+            <div class="delete-icon" onClick={handleDelete}><BsTrash /></div>
+            <div class="edit-icon" onClick={handleEdit}><BsPencil /></div>
+        
         </div>
     )
 

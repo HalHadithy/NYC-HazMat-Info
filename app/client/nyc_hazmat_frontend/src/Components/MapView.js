@@ -8,11 +8,11 @@ function MapView ({mapData, setSelectedSite}){
  
     let navigate = useNavigate(); 
 
-    function handleDotClick(){
+    function handleDotClick(event){
             //onClick event on each little icon, we will put that on a dot when we get the mapbox in
             //navigate to the "/detailed_site_info" page 
             //and setSelectedSite
-
+            setSelectedSite(event.target.value)
     }
 
  
